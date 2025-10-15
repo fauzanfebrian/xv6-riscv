@@ -9,7 +9,6 @@ RUN apt update \
     build-essential \
     gcc-riscv64-linux-gnu \
     libc6-riscv64-cross \
-    make \
     qemu-system-misc \
  && apt clean \
  && rm -rf /var/lib/apt/lists/* \
