@@ -183,6 +183,9 @@ docker-clean: docker-build
 docker-qemu: docker-build
 	docker run -it --rm -v .:/xv6-riscv xv6-riscv-build-env make qemu
 
+docker-qemu-gdb: docker-build
+	docker run -it --rm -v .:/xv6-riscv xv6-riscv-build-env make qemu-gdb
+
 .gdbinit: .gdbinit.tmpl-riscv
 	sed "s/:1234/:$(GDBPORT)/" < $^ > $@
 
