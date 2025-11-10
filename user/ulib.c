@@ -109,6 +109,28 @@ atoi(const char *s)
   return n;
 }
 
+void
+itoa(int n, char* s) {
+  char* p = s;
+  char tmp;
+  char* q;
+
+  do {
+    *p++ = n % 10 + '0';
+    n /= 10;
+  } while (n > 0);
+
+  *p = '\0';
+  p--;
+
+  for (q = s; q < p; q++, p--) {
+    tmp = *q;
+    *q = *p;
+    *p = tmp;
+  }
+}
+
+
 void*
 memmove(void *vdst, const void *vsrc, int n)
 {

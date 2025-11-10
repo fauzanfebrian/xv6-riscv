@@ -10,28 +10,6 @@ int getcmd(char* strPrint, int nPrint, char* buf, int nbuf) {
     return 0;
 }
 
-void itoa(int n, char* s) {
-    char* p = s;
-    char tmp;
-    char* q;
-
-    // generate digits in reverse order
-    do {
-        *p++ = n % 10 + '0';
-        n /= 10;
-    } while (n > 0);
-
-    *p = '\0';
-    p--;
-
-    // reverse the string
-    for (q = s; q < p; q++, p--) {
-        tmp = *q;
-        *q = *p;
-        *p = tmp;
-    }
-}
-
 int main() {
     int p[2];
     if (pipe(p) < 0) {
