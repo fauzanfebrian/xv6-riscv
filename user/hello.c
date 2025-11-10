@@ -1,9 +1,15 @@
 #include "kernel/types.h"
 #include "user/user.h"
 
-int
-main(void)
-{
-  printf("Hello, World!\n");
-  exit(0);
+#define MAX_NAME_LEN 100
+
+int main(void) {
+    char name[MAX_NAME_LEN];
+
+    printf("Enter your name: ");
+    gets(name, MAX_NAME_LEN);
+    name[strcspn(name, "\n")] = '\0';
+
+    printf("Hello, %s!\n", name);
+    exit(0);
 }
